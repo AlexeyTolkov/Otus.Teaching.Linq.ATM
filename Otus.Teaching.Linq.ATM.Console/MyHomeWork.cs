@@ -54,7 +54,7 @@ namespace Otus.Teaching.Linq.ATM.Console
         {
             // 5. Вывод данных о всех пользователях у которых на счёте сумма больше N(N задаётся из вне и может быть любой);
             System.Console.WriteLine($"5. Account balance info:");
-            System.Console.WriteLine($"enter the amount to get accounts with greater balance:");
+            System.Console.WriteLine($"Enter amount to get accounts with greater balance:");
 
             var balanceInquaryAmount = decimal.Parse(System.Console.ReadLine());
 
@@ -88,7 +88,7 @@ namespace Otus.Teaching.Linq.ATM.Console
             foreach (var historyRecord in operationHistoryWithOwner)
             {
                 System.Console.WriteLine($"\t4.{ operationNo}. {historyRecord}; owner: " +
-                                         $"{ATMManager.GetOwnerAccountHistoryOwner(historyRecord)}");
+                                         $"{ATMManager.GetAccountHistoryOwner(historyRecord)}");
                 operationNo++;
             }
         }

@@ -19,13 +19,13 @@ namespace Otus.Teaching.Linq.ATM.Core.Services
             History = history;
         }
 
-        //TODO: Добавить методы получения данных для банкомата
-
-        public User GetOwnerAccountHistoryOwner(OperationsHistory history)
+        public User GetAccountHistoryOwner(OperationsHistory history)
         {
-            return Users.Where(x => x.Id == history.AccountId)
-                 .FirstOrDefault();
-        }
+            var userId = Accounts.Where(x => x.Id == history.AccountId)
+                    .FirstOrDefault().UserId;
 
+            return Users.Where(x => x.Id == userId)
+                        .FirstOrDefault();
+        }
     }
 }
