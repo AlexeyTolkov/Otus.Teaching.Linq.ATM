@@ -13,7 +13,19 @@ namespace Otus.Teaching.Linq.ATM.Console
 
             var atmManager = CreateATMManager();
 
-            new MyHomeWork(atmManager).Run();
+            var login = "lee";
+            var password = "222";
+
+            // 1
+            atmManager.UserLogIn(login, password);
+            // 2
+            atmManager.PrintUserAccountsInfo();
+            // 3
+            atmManager.PrintUserAccountsInfoWithHistory();
+            // 4
+            atmManager.PrintInputAccountOperations();
+            // 5
+            atmManager.PrintUserBalanceInquery(100000m);
 
             System.Console.WriteLine("Завершение работы приложения-банкомата...");
         }
