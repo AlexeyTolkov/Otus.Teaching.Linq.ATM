@@ -21,16 +21,6 @@ namespace Otus.Teaching.Linq.ATM.Core.Services
 
         private User _currentUser;
 
-        private User GetAccountHistoryOwner(OperationsHistory history)
-        {
-            //TODO:
-            var userId = Accounts.Where(x => x.Id == history.AccountId)
-                    .FirstOrDefault().UserId;
-
-            return Users.Where(x => x.Id == userId)
-                        .FirstOrDefault();
-        }
-
         /// <summary>
         /// 1. Вывод информации о заданном аккаунте по логину и паролю;
         /// </summary>
@@ -120,20 +110,6 @@ namespace Otus.Teaching.Linq.ATM.Core.Services
         public void PrintInputAccountOperations()
         {
             System.Console.WriteLine($"4. Accounts input history");
-
-          /*  var operationHistoryWithOwner = History
-                .Where(x => x.OperationType == OperationType.InputCash)
-                .ToList();
-
-            var operationNo = 1;
-            foreach (var historyRecord in operationHistoryWithOwner)
-            {
-                System.Console.WriteLine($"\t4.{ operationNo}. {historyRecord} => owner: " +
-                                        //TODO:
-                                         $"{GetAccountHistoryOwner(historyRecord)}");
-                operationNo++;
-            }
-            */
 
             var operationHistoryWithOwner =
                 from tx in History
